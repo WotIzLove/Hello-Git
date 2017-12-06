@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/vlad/CLionProjects/CS50/greedy.c
+stdio.h
+-
+math.h
+-
+
+/home/vlad/CLionProjects/CS50/initialz.c
+stdio.h
+-
+string.h
+-
+
+/home/vlad/CLionProjects/CS50/main.c
+stdio.h
+-
+
+/home/vlad/CLionProjects/CS50/water.c
+stdio.h
+-
+

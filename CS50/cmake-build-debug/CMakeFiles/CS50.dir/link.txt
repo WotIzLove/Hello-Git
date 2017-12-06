@@ -1,0 +1,1 @@
+/usr/bin/cc -g   CMakeFiles/CS50.dir/main.c.o CMakeFiles/CS50.dir/water.c.o CMakeFiles/CS50.dir/greedy.c.o CMakeFiles/CS50.dir/initialz.c.o  -o CS50 

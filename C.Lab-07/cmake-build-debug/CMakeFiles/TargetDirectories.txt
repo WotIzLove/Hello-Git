@@ -1,0 +1,3 @@
+/home/vlad/CLionProjects/CLadb.Part-2/C.Lab-07/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/vlad/CLionProjects/CLadb.Part-2/C.Lab-07/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/vlad/CLionProjects/CLadb.Part-2/C.Lab-07/cmake-build-debug/CMakeFiles/lab07.dir

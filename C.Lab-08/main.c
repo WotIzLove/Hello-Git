@@ -3,11 +3,12 @@
 #include <stdlib.h>
 #include <time.h>
 
-float open(int kol, int k, float y_f[k]);
+float open(int kol, int k, float y_f[k], float x_f[k]);
 float coordinates(double ds);
 float kor ( float x0, float y0,float xt,float yt);
 int main(){
     clock_t start, end;
+    FILE *t;
     srand(time(NULL));
     int k=0, n=0, i, kol = 0, l = 0;
     float x0, y0, R, a;
@@ -15,7 +16,7 @@ int main(){
     start = clock();
     printf("Введите количество точек:\n");
     scanf("%i", &k);
-    float x[k], y[k], y_f[k];
+    float x[k], y[k], y_f[k], x_f[k];
 
     for (i=0;i<k;i++)
     {
@@ -40,19 +41,20 @@ int main(){
         if (a<=R){
             printf("Точка принадлежит области.\n");
             y_f[kol] = y[i];
+            x_f[kol] = x[i];
             kol = kol + 1;
-            l = 1;
         }
         else
             printf("Точка не прнадлежит области.\n");
 
-    }
     printf("Количсетво точек области:%i\n", kol);
 
-    if (l == 1)
-       open(kol, k, y_f);
+        t = fopen("time.txt","w+");
+        open(kol, k, y_f, x_f);
         end = clock();
-    printf("Работа заняла %f секунд.\n", ((double) end - start) / ((double) CLOCKS_PER_SEC));;
+        fprintf(t, "%lf\n", (end - start) / CLOCKS_PER_SEC);
+        fclose (t);}
+
         return 0;
 }
 
@@ -70,17 +72,16 @@ float kor (float x0, float y0,float xt,float yt){
     return c;
 }
 
-float open(int kol, int k, float y_f[k]){
+float open(int kol, int k, float y_f[k], float x_f[k]){
     int i;
-    FILE*f1;
-    f1 = (FILE *) fopen("test.txt", "w+");
-    if ((f1 = fopen("test.txt", "w")) == NULL)  //Открытие файла для записи
-    {
-        printf("Ошибка при открытии файла\n");
-        exit(1);
-    }
-    for (i = 0; i < kol; i++)
-        fprintf(f1, "%f\n", y_f[i]);
+    FILE*X;
+    FILE*Y;
+    X = (FILE *) fopen("x.txt", "w+");
+    Y = (FILE *) fopen("y.txt", "w+");
+    for (i = 0; i < kol; i++){
+        fprintf(X, "%f\n", x_f[i]);
+        fprintf(Y, "%f\n", y_f[i]);}
 
-    fclose(f1);
+    fclose(X);
+    fclose(Y);
 }
